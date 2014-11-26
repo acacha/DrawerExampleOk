@@ -22,7 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements
-		NavigationDrawerFragment.NavigationDrawerCallbacks,FragmentType0.OnFragmentInteractionListener {
+		NavigationDrawerFragment.NavigationDrawerCallbacks,FragmentType0.OnFragmentInteractionListener,FragmentType1.OnFragmentInteractionListener {
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -59,14 +59,15 @@ public class MainActivity extends ActionBarActivity implements
 				.replace(R.id.container,
 						PlaceholderFragment.newInstance(position + 1)).commit();
 		
-		FragmentType0 fragment = null;
+		Fragment fragment = null;
 		switch (position)
 		   {
 		     case 0:
-		        fragment = new FragmentType0();
+		        fragment = (Fragment) new FragmentType0();
 		        break;
 		     case 1:
 		    	 Log.w(this.getClass().getSimpleName(), "Section 1");
+		    	 fragment = (Fragment) new FragmentType1();
 		        break;
 		     case 2:
 		    	 Log.w(this.getClass().getSimpleName(), "Section 2");
@@ -179,5 +180,6 @@ public class MainActivity extends ActionBarActivity implements
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }
